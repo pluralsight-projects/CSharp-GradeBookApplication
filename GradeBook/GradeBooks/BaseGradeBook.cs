@@ -102,7 +102,8 @@ namespace GradeBook.GradeBooks
                             gradebook = JsonConvert.DeserializeObject<RankedGradeBook>(json);
                             break;
                         default:
-                            throw new ArgumentException("The specified gradebook appears to be corrupted.");
+                            gradebook = JsonConvert.DeserializeObject<StandardGradeBook>(json);
+                            break;
                     }
                     return gradebook;
                 }
