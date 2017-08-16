@@ -27,17 +27,17 @@ The C Sharp Grade Book Application is a designed to allow instructors to create 
 # Setup the Application
 
 ## If you want to use Visual Studio
-If you want to use Visual Studio (highly recommend for Windows users) follow the following steps:
+If you want to use Visual Studio (highly recommended for Windows users) follow the following steps:
 -	If you already have Visual Studio installed make sure you have .Net Core installed by running the "Visual Studio Installer" and making sure ".NET Core cross-platform development" is checked
 -	If you need to install visual studio download it at https://www.microsoft.com/net/core#windowsvs2017 On the workloads screen make sure ".NET Core cross-platform development" is checked
 -	To run the application simply press the Start Debug button (green arrow) or press F5
 -	To run the tests go to "Test" and select "Run All Tests" (you might need to goto "Test" > "Windows" > "Test Explorer" to display the results if you closed the test explorer.)
 
 ## If you don't plan to use Visual studio
-If you would rather use something other than Visual Studio (or are on OSX or Linux)
+If you would rather use something other than Visual Studio
 -	Install the .Net Core SDK from https://www.microsoft.com/net/download/core once that installation completes you're ready to roll!
 -	To run the application go into the GradeBook project folder and type `dotnet run`
--	To run the tests go into the GradeBookTests project folder and type `dotnet test`
+-	To run the tests go into the GradeBookTests project folder and type `dotnet test /verbosity:quiet`
 
 # Features you will impliment
 
@@ -118,3 +118,9 @@ __Note:__ this isn't the only way to accomplish this, however; this is what the 
 		- [ ] Update `Program.Main` so that the `Create` command accepts a third value of `true` or `false` to set `IsWeighted` via the gradebook constructors.
 		- [ ] Update both Gradebook Instantiations to use our new command value to set `IsWeighted`.
 		- [ ] Change where the "help" command outlines the "create" command to say "Create 'Name' 'Type' 'Weighted' - Creates a new gradebook where 'Name' is the name of the gradebook, 'Type' is what type of grading it should use, and 'Weighted' is whether or not grades should be weighted (true or false).".
+
+## What Now?
+
+You've compeleted the tasks of this project, if you want to continue working on this project some next steps would be to add support for some of the other grading formats, set Save to run with Add/Removing students and grades, etc.
+
+Otherwise now is a good time to continue on the C# path to expand your understanding of the C# programming language or start looking into the User Interface options of C# whether that's ASP.NET (web), XAML (applications), DirectX (Graphically intense applications), etc
