@@ -37,7 +37,7 @@ If you want to use Visual Studio (highly recommended for Windows users) follow t
 If you would rather use something other than Visual Studio
 -	Install the .Net Core SDK from https://www.microsoft.com/net/download/core once that installation completes you're ready to roll!
 -	To run the application go into the GradeBook project folder and type `dotnet run`
--	To run the tests go into the GradeBookTests project folder and type `dotnet test /verbosity:quiet` (for OSX users use `dotnet test --verbosity:quiet` instead)
+-	To run the tests go into the GradeBookTests project folder and type `dotnet test /verbosity:quiet`
 
 # Features you will impliment
 
