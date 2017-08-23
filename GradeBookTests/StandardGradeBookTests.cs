@@ -62,16 +62,16 @@ namespace GradeBookTests
             var parameters = ctor.GetParameters();
             object gradeBook = null;
             if (parameters.Count() == 2 && parameters[0].ParameterType == typeof(string) && parameters[1].ParameterType == typeof(bool))
-                gradeBook = Activator.CreateInstance(standardGradeBook, "LoadTest", true);
+                gradeBook = Activator.CreateInstance(standardGradeBook, "StandardLoadTest", true);
             else if (parameters.Count() == 1 && parameters[0].ParameterType == typeof(string))
-                gradeBook = Activator.CreateInstance(standardGradeBook, "LoadTest");
+                gradeBook = Activator.CreateInstance(standardGradeBook, "StandardLoadTest");
             Assert.True(gradeBook != null, "The constructor for GradeBook.GradeBooks.StandardGradeBook have the expected parameters.");
 
             gradeBook.GetType().GetProperty("Type").SetValue(gradeBook, Enum.Parse(gradebookEnum, "Standard", true));
 
             try
             {
-                using (var file = new FileStream("LoadTest.gdbk", FileMode.Create, FileAccess.Write))
+                using (var file = new FileStream("StandardLoadTest.gdbk", FileMode.Create, FileAccess.Write))
                 {
                     using (var writer = new StreamWriter(file))
                     {
@@ -85,8 +85,9 @@ namespace GradeBookTests
                 Assert.True(ex != null, "Test for GradeBook.GradeBooks.BaseGradeBook.Load was unable to run. This is likely due to issues being able to read/write gradebook files to the local file system.");
             }
             
-            var actual = BaseGradeBook.Load("LoadTest");
-            Assert.True((string)actual.GetType().GetProperty("Name").GetValue(gradeBook) == "LoadTest", "GradeBook.GradeBooks.BaseGradeBook.Load did not properly load the gradebook when called from StandardGradeBook.");
+            var actual = BaseGradeBook.Load("StandardLoadTest");
+            Assert.True((string)actual.GetType().GetProperty("Name").GetValue(gradeBook) == "StandardLoadTest", "GradeBook.GradeBooks.BaseGradeBook.Load did not properly load the gradebook when called from StandardGradeBook.");
+            Assert.True(actual.GetType() == standardGradeBook, "GradeBook.GradeBooks.BaseGradeBook.Load did not instantiate the correct type of gradebook when called from StandardGradeBook.");
             Assert.True(actual.GetType().GetProperty("Type").GetValue(gradeBook).ToString() == Enum.Parse(gradebookEnum, "Standard", true).ToString(), "GradeBook.GradeBooks.BaseGradeBook.Load did not properly set the type of gradebook to Standard when called from StandardGradeBook.");
         }
 

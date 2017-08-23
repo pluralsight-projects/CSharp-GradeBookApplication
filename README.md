@@ -53,6 +53,8 @@ __Note:__ this isn't the only way to accomplish this, however; this is what the 
 		- [ ] Create a new Enum `GradeBookType` containing the types `Standard`, `Ranked`, `ENSU`, `OneToFour`, and `SixPoint`.
 			- This should be located in the `Enums` directory.
 			- This should use the `GradeBook.Enums` namespace.
+
+	- [ ] In the `GradeBooks` directory add a `GradeBookType` property to `BaseGradeBook
 		- [ ] Add a `public` property named `Type` to `BaseGradeBook` of type `GradeBookType`.
 
 	- [ ] Create a new class `StandardGradeBook` to contain the Standard Gradebook functionality. *note once this task is started code won't compile until task completion*
@@ -98,14 +100,14 @@ __Note:__ this isn't the only way to accomplish this, however; this is what the 
 	- [ ] In the `UserInterfaces` directory, Update the `StartingUserInterface` class to work with multiple types of grade books
 		- [ ] Update the `CreateCommand` method to support multiple types.
 			- [ ] Update the condition to check if the `parts.Length` is not 3.
-			- [ ] Update the message written to console by this condition to say "Command not valid, Create requires a name, type, is it weighted.".
+			- [ ] Update the message written to console by this condition to say "Command not valid, Create requires a name and type of gradebook.".
 			- [ ] Change where `gradeBook` is set to `BaseGradeBook` so it's of type `BaseGradeBook`, but don't instantiate it.
 			- [ ] Create a new variable to store a string representing the gradebook type, this will be set using the second substring of the parts array.
 				- [ ] When the value is "standard" set `gradeBook` to a newly instantiated `StandardGradeBook`.
 				- [ ] When the value is "rank" set `gradeBook` to a newly instantiated `RankedGradeBook`.
-				- [ ] When the value doesn't match any of the above write to `Console` what they entered " is not a supported type of gradebook, please try again", then use the `continue` keyword to return to the start of the loop.
+				- [ ] When the value doesn't match any of the above write to `Console` what they entered " is not a supported type of gradebook, please try again", then escape the method.
 
-	- [ ] Change where the "help" command outlines the "create" command to say "Create 'Name' 'Type' 'Weighted' - Creates a new gradebook where 'Name' is the name of the gradebook, 'Type' is what type of grading it should use, and 'Weighted' is whether or not grades should be weighted (true or false).".
+	- [ ] Change where the "help" command outlines the "create" command to say "Create 'Name' 'Type' - Creates a new gradebook where 'Name' is the name of the gradebook and 'Type' is what type of grading it should use.".
 
 	- [ ] In the GradeBooks directory, change `BaseGradeBook` into an abstract class
 		- [ ] Add the `abstract` keyword to the `BaseGradeBook` declarition
