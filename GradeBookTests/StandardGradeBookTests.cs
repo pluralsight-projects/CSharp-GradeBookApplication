@@ -92,16 +92,16 @@ namespace GradeBookTests
             var parameters = ctor.GetParameters();
             object gradeBook = null;
             if (parameters.Count() == 2 && parameters[0].ParameterType == typeof(string) && parameters[1].ParameterType == typeof(bool))
-                gradeBook = Activator.CreateInstance(standardGradeBook, "LoadTest", true);
+                gradeBook = Activator.CreateInstance(standardGradeBook, "StandardLoadTest", true);
             else if (parameters.Count() == 1 && parameters[0].ParameterType == typeof(string))
-                gradeBook = Activator.CreateInstance(standardGradeBook, "LoadTest");
+                gradeBook = Activator.CreateInstance(standardGradeBook, "StandardLoadTest");
             Assert.True(gradeBook != null, "The constructor for GradeBook.GradeBooks.StandardGradeBook have the expected parameters.");
 
             gradeBook.GetType().GetProperty("Type").SetValue(gradeBook, Enum.Parse(gradebookEnum, "Standard", true));
 
             try
             {
-                using (var file = new FileStream("LoadTest.gdbk", FileMode.Create, FileAccess.Write))
+                using (var file = new FileStream("StandardLoadTest.gdbk", FileMode.Create, FileAccess.Write))
                 {
                     using (var writer = new StreamWriter(file))
                     {
@@ -124,7 +124,6 @@ namespace GradeBookTests
         [Fact]
         public void LoadFileNotFoundTest()
         {
-
             var output = string.Empty;
             using (var consolestream = new StringWriter())
             {

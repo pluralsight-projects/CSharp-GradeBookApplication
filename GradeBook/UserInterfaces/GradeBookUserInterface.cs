@@ -11,6 +11,7 @@ namespace GradeBook.UserInterfaces
         public static void CommandLoop(BaseGradeBook gradeBook)
         {
             GradeBook = gradeBook;
+            Quit = false;
 
             Console.WriteLine("#=======================#");
             Console.WriteLine(GradeBook.Name);

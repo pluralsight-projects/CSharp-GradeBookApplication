@@ -72,21 +72,21 @@ namespace GradeBookTests
             Assert.True(gradebookEnum != null, "GradeBook.Enums.GradeBookType doesn't exist.");
 
             var ctor = rankedGradeBook.GetConstructors().FirstOrDefault();
-            Assert.True(ctor != null, "No constructor found for GradeBook.GradeBooks.StardardGradeBook.");
+            Assert.True(ctor != null, "No constructor found for GradeBook.GradeBooks.RankedGradeBook.");
 
             var parameters = ctor.GetParameters();
             object gradeBook = null;
             if (parameters.Count() == 2 && parameters[0].ParameterType == typeof(string) && parameters[1].ParameterType == typeof(bool))
-                gradeBook = Activator.CreateInstance(rankedGradeBook, "LoadTest", true);
+                gradeBook = Activator.CreateInstance(rankedGradeBook, "RankedLoadTest", true);
             else if (parameters.Count() == 1 && parameters[0].ParameterType == typeof(string))
-                gradeBook = Activator.CreateInstance(rankedGradeBook, "LoadTest");
+                gradeBook = Activator.CreateInstance(rankedGradeBook, "RankedLoadTest");
             Assert.True(gradeBook != null, "The constructor for GradeBook.GradeBooks.RankedGradeBook have the expected parameters.");
 
             gradeBook.GetType().GetProperty("Type").SetValue(gradeBook, Enum.Parse(gradebookEnum, "Ranked", true));
 
             try
             {
-                using (var file = new FileStream("LoadTest.gdbk", FileMode.Create, FileAccess.Write))
+                using (var file = new FileStream("RankedLoadTest.gdbk", FileMode.Create, FileAccess.Write))
                 {
                     using (var writer = new StreamWriter(file))
                     {
@@ -99,7 +99,7 @@ namespace GradeBookTests
             {
                 Assert.True(ex != null, "Test for GradeBook.GradeBooks.BaseGradeBook.Load was unable to run. This is likely due to issues being able to read/write gradebook files to the local file system.");
             }
-
+          
             var actual = BaseGradeBook.Load("LoadTest");
             Assert.True((string)actual.GetType().GetProperty("Name").GetValue(gradeBook) == "LoadTest", "GradeBook.GradeBooks.BaseGradeBook.Load did not properly load the gradebook when called from RankedGradeBook.");
             Assert.True(actual.GetType().ToString() == "RankedGradeBook", "GradeBook.GradeBooks.BaseGradeBook.Load did not properly set the type of gradebook to Ranked when called from RankedGradeBook.");
