@@ -1,6 +1,6 @@
 # C Sharp Grade Book Application
 
-The C Sharp Grade Book Application is a designed to allow instructors to create gradebooks, add students to those grade books, add grades to those students, and calculate statics such as GPA (Grade Point Average).
+The C Sharp Grade Book Application is a designed to allow instructors to create gradebooks, add students to those grade books, add grades to those students, and calculate statics such as GPA.
 
 ## Accepted Commands
 
@@ -25,21 +25,17 @@ The C Sharp Grade Book Application is a designed to allow instructors to create 
 # Setup the Application
 
 ## If you want to use Visual Studio
-If you want to use Visual Studio (highly recommended) follow the following steps:
+If you want to use Visual Studio (highly recommended for Windows users) follow the following steps:
 -	If you already have Visual Studio installed make sure you have .Net Core installed by running the "Visual Studio Installer" and making sure ".NET Core cross-platform development" is checked
--	If you need to install visual studio download it at https://www.microsoft.com/net/download/ (If you'r using Windows you'll want to check ".NET Core cross-platform development" on the workloads screen during installation.)
--   Open the .sln file in visual studio
+-	If you need to install visual studio download it at https://www.microsoft.com/net/core#windowsvs2017 On the workloads screen make sure ".NET Core cross-platform development" is checked
 -	To run the application simply press the Start Debug button (green arrow) or press F5
--   If you're using Visual Studio on Windows, to run tests open the Test menu, click Run, then click on Run all tests (results will show up in the Test Explorer)
--   If you're using Visual Studio on macOS, to run tests, select the GradeBookTests Project, then go to the Run menu, then click on Run Unit Tests (results will show up in the Unit Tests panel)
-
-(Note: All tests should fail at this point, this is by design. As you progress through the projects more and more tests will pass. All tests should pass upon completion of the project.)
+-	To run the tests go to "Test" and select "Run All Tests" (you might need to goto "Test" > "Windows" > "Test Explorer" to display the results if you closed the test explorer.)
 
 ## If you don't plan to use Visual studio
 If you would rather use something other than Visual Studio
 -	Install the .Net Core SDK from https://www.microsoft.com/net/download/core once that installation completes you're ready to roll!
 -	To run the application go into the GradeBook project folder and type `dotnet run`
--	To run the tests go into the GradeBookTests project folder and type `dotnet test`
+-	To run the tests go into the GradeBookTests project folder and type `dotnet test /verbosity:quiet` (for OSX users use `dotnet test --verbosity:quiet` instead)
 
 # Features you will impliment
 
