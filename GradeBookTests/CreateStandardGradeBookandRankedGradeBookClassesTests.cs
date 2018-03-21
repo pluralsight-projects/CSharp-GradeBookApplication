@@ -46,7 +46,7 @@ namespace GradeBookTests
         ///     All tests related to the "Update StandardGradeBook Type" task.
         /// </summary>
         [Fact(DisplayName = "Update StandardGradeBook Type @update-standardgradebook-type")]
-        public void UpdateStndardGradeBookTypeTests()
+        public void UpdateStandardGradeBookTypeTests()
         {
             // Get StandardGradeBook from the GradeBook.GradeBooks namespace
             var gradebook = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
