@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace GradeBook.GradeBooks
 {//TEST
-    public class BaseGradeBook
+    public abstract class BaseGradeBook
     {
         //Constructors
         public string Name { get; set; }
