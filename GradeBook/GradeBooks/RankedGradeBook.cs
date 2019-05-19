@@ -27,17 +27,17 @@ namespace GradeBook.GradeBooks
                     return 'D';
                 return 'F';
             }
-            throw new InvalidOperationException("You must have at least 5 students to do ranked grading.");
+            throw new InvalidOperationException("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
         }
         public override void CalculateStatistics()
         {
-            if (Students.Count > 5)
+            if (Students.Count < 5)
             {
                 base.CalculateStatistics();
             }
             else
             {
-                Console.WriteLine("Ranked grading requires at least 5 students.");
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
                 return;
             }
         }
@@ -46,7 +46,7 @@ namespace GradeBook.GradeBooks
         {
             if (Students.Count < 5)
             {
-                Console.WriteLine("Ranked grading requires at least 5 students.");
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
                 return;
             }
 
