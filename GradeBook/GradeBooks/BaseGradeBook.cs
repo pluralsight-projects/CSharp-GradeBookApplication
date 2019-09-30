@@ -117,7 +117,7 @@ namespace GradeBook.GradeBooks
                     numGrade = 4;
                     break;
                 case 'B':
-                    numGrade 3;
+                    numGrade = 3;
                     break;
                 case 'C':
                     numGrade = 2;
