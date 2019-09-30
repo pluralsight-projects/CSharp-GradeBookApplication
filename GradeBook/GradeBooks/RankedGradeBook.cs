@@ -24,6 +24,8 @@ namespace GradeBook.GradeBooks
                 return 'C';
             else if (averageGrade >= 20)
                 return 'D';
+            else
+                return 'F';
         }
     }
 }
