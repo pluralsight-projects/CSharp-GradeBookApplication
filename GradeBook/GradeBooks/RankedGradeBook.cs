@@ -38,5 +38,14 @@ namespace GradeBook.GradeBooks
             // Otherwise, return F
             return 'F';
         }
+        public override void CalculateStatistics()
+        {
+            // Number of students must not be less than 5
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+            }
+            base.CalculateStatistics();
+        }
     }
 }
