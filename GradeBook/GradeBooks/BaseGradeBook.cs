@@ -7,16 +7,17 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace GradeBook.GradeBooks
-{
+namespace GradeBook.GradeBooks {
     public abstract class BaseGradeBook {
         public string Name { get; set; }
         public List<Student> Students { get; set; }
         public GradeBookType Type { get; set; }
+        public bool IsWeighted { get; set; }
 
-        public BaseGradeBook(string name) {
+        public BaseGradeBook(string name, bool val) {
             Name = name;
             Students = new List<Student>();
+            val = IsWeighted;
         }
 
         public void AddStudent(Student student) {
@@ -88,18 +89,49 @@ namespace GradeBook.GradeBooks
         }
 
         public virtual double GetGPA(char letterGrade, StudentType studentType) {
+            Int32 gpa = 0;
+
             switch (letterGrade) {
                 case 'A':
-                    return 4;
+                    gpa = 4;
+                    
+                    if(IsWeighted && (studentType == StudentType.DualEnrolled || studentType ==  StudentType.Honors)) {
+                        gpa += 1;
+                    }
+
+                    return gpa;
                 case 'B':
-                    return 3;
+                    gpa = 3;
+                    
+                    if(IsWeighted && (studentType == StudentType.DualEnrolled || studentType ==  StudentType.Honors)) {
+                        gpa += 1;
+                    }
+                    return gpa;
                 case 'C':
-                    return 2;
+                    gpa = 2;
+                    
+                    if(IsWeighted && (studentType == StudentType.DualEnrolled || studentType ==  StudentType.Honors)) {
+                        gpa += 1;
+                    }
+                    return gpa;
                 case 'D':
-                    return 1;
+                    gpa = 1;
+                    
+                    if(IsWeighted && (studentType == StudentType.DualEnrolled || studentType ==  StudentType.Honors)) {
+                        gpa += 1;
+                    }
+
+                    return gpa;
                 case 'F':
-                    return 0;
+                    gpa = 0;
+                    
+                    if(IsWeighted && (studentType == StudentType.DualEnrolled || studentType ==  StudentType.Honors)) {
+                        gpa += 1;
+                    }
+
+                    return gpa;
             }
+
             return 0;
         }
 
