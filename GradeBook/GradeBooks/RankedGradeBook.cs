@@ -11,6 +11,11 @@ namespace GradeBook.GradeBooks
             Name = name;
             Type = GradeBookType.Ranked;
         }
+        public RankedGradeBook(string name,bool x) : base(name, x)
+        {
+            Name = name;
+            Type = GradeBookType.Ranked;
+        }
 
         public override char GetLetterGrade(double averageGrade)
         {
