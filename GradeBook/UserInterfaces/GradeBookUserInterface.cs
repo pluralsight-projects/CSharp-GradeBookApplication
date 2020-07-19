@@ -17,7 +17,7 @@ namespace GradeBook.UserInterfaces
             Console.WriteLine(GradeBook.Name + " : " + GradeBook.GetType().Name);
             Console.WriteLine("#=======================#");
 
-            while(!Quit)
+            while (!Quit)
             {
                 Console.WriteLine(string.Empty);
                 Console.WriteLine(">> What would you like to do?");
@@ -59,7 +59,7 @@ namespace GradeBook.UserInterfaces
             GradeBook.Save();
             Console.WriteLine("{0} has been saved.", GradeBook.Name);
         }
-        
+
         public static void AddGradeCommand(string command)
         {
             var parts = command.Split(' ');
@@ -116,7 +116,7 @@ namespace GradeBook.UserInterfaces
             GradeBook.AddStudent(student);
             Console.WriteLine("Added {0} to the gradebook.", name);
         }
-        
+
         public static void RemoveStudentCommand(string command)
         {
             var parts = command.Split(' ');
@@ -134,7 +134,7 @@ namespace GradeBook.UserInterfaces
         {
             GradeBook.ListStudents();
         }
-        
+
         public static void StatisticsCommand()
         {
             GradeBook.CalculateStatistics();

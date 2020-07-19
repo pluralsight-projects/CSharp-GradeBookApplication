@@ -16,6 +16,7 @@ namespace GradeBook
         [JsonIgnore]
         public double AverageGrade
         {
+
             get
             {
                 return Grades.Average();

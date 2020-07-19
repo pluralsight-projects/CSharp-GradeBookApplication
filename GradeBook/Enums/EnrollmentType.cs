@@ -2,6 +2,7 @@
 {
     public enum EnrollmentType
     {
+
         Campus,
         State,
         National,
