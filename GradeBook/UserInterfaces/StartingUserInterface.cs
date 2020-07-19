@@ -34,9 +34,9 @@ namespace GradeBook.UserInterfaces
         public static void CreateCommand(string command)
         {
             var parts = command.Split(' ');
-            if (parts.Length != 2)
+            if (parts.Length != 3)
             {
-                Console.WriteLine("Command not valid, Create requires a name.");
+                Console.WriteLine("Command not valid, Create requires a name Command not valid, Create requires a name and type of gradebook.");
                 return;
             }
             var name = parts[1];
@@ -64,16 +64,8 @@ namespace GradeBook.UserInterfaces
 
         public static void HelpCommand()
         {
-            Console.WriteLine();
-            Console.WriteLine("GradeBook accepts the following commands:");
-            Console.WriteLine();
-            Console.WriteLine("Create 'Name' - Creates a new gradebook where 'Name' is the name of the gradebook.");
-            Console.WriteLine();
-            Console.WriteLine("Load 'Name' - Loads the gradebook with the provided 'Name'.");
-            Console.WriteLine();
-            Console.WriteLine("Help - Displays all accepted commands.");
-            Console.WriteLine();
-            Console.WriteLine("Quit - Exits the application");
+            Console.WriteLine("Create 'Name' 'Type' - Creates a new gradebook where 'Name' is the name of the gradebook and 'Type' is what type of grading it should use.");
+      
         }
     }
 }
