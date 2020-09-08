@@ -18,7 +18,7 @@ namespace GradeBook.GradeBooks
 
             var sortedAverageGrades = Students.Select(student => student.AverageGrade).OrderBy(grade => grade);
 
-            double index = sortedAverageGrades.SkipWhile(grade => grade <= averageGrade).Count();
+            double index = sortedAverageGrades.Where(grade => grade < averageGrade).Count();
 
             var indexPercentage = (index / Students.Count) * 100;
 
