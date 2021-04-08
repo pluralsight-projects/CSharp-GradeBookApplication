@@ -10,8 +10,8 @@ namespace GradeBook.GradeBooks
                 Type = GradeBookType.Ranked;
             }
         //override method
-        public override char GetLetterGrade (double avreagegrade)
-            return base.GetLetterGrade(avreagegrade);
+       /* public override char GetLetterGrade (double avreagegrade)
+            return base.GetLetterGrade(avreagegrade);*/
 
     }
 }
