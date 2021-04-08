@@ -13,7 +13,7 @@ namespace GradeBook.GradeBooks
                 Type = GradeBookType.Ranked;
             }
         //override method
-        public override char GetLetterGrade(double averageGrade)
+       /* public override char GetLetterGrade(double averageGrade)
 
             if(Students.Count < 5)
                 throw new InvalidOperationException("Ranked grading requires at least 5 students.");
@@ -31,6 +31,6 @@ namespace GradeBook.GradeBooks
             else if(grades[threshold * 4) - 1] <= averageGrade)
                 return 'D';
             else
-                return 'F';
+                return 'F';*/
     }
 }
