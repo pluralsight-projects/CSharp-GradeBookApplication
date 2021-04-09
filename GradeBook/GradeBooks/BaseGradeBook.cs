@@ -109,20 +109,22 @@ namespace GradeBook.GradeBooks
 
         public virtual double GetGPA(char letterGrade, StudentType studentType)
         {
+                var gpa = 0;
             switch (letterGrade)
             {
                 case 'A':
-                    return 4;
+                     gpa = 4;
+                    break;
                 case 'B':
-                    return 3;
+                     gpa = 3;
+                    break;
                 case 'C':
-                    return 2;
+                     gpa = 2;
+                    break;
                 case 'D':
-                    return 1;
-                case 'F':
-                    return 0;
+                     gpa = 1;
+                    break;
             }
-            return 0;
         }
 
         public virtual void CalculateStatistics()
@@ -143,6 +145,8 @@ namespace GradeBook.GradeBooks
 
                 Console.WriteLine("{0} ({1}:{2}) GPA: {3}.", student.Name, student.LetterGrade, student.AverageGrade, student.GPA);
                 allStudentsPoints += student.AverageGrade;
+
+             
 
                 switch (student.Enrollment)
                 {
